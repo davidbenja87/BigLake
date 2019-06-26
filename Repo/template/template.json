@@ -37,7 +37,7 @@
         },
         "clusterWorkerNodeCount": {
             "type": "int",
-            "defaultValue": 4,
+            "defaultValue": 1,
             "metadata": {
                 "description": "The number of nodes in the HDInsight cluster."
             }
@@ -61,6 +61,12 @@
             "metadata": {
                 "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
             }
+        },
+        "identityCertificate": {
+            "type": "securestring"
+        },
+        "identityCertificatePassword": {
+            "type": "securestring"
         }
     },
     "resources": [
@@ -69,9 +75,7 @@
             "name": "[parameters('clusterName')]",
             "type": "Microsoft.HDInsight/clusters",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "Microsoft.Storage/storageAccounts/test"
-            ],
+            "dependsOn": [],
             "properties": {
                 "clusterVersion": "[parameters('clusterVersion')]",
                 "osType": "Linux",
@@ -86,18 +90,23 @@
                             "restAuthCredential.isEnabled": true,
                             "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
                             "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+                        },
+                        "core-site": {
+                            "fs.defaultFS": "adl://home",
+                            "dfs.adls.home.hostname": "datalakepoctest.azuredatalakestore.net",
+                            "dfs.adls.home.mountpoint": "/"
+                        },
+                        "clusterIdentity": {
+                            "clusterIdentity.applicationId": "1550e609-111d-4022-bc4e-333b3b650729",
+                            "clusterIdentity.certificate": "[parameters('identityCertificate')]",
+                            "clusterIdentity.aadTenantId": "https://login.windows.net/c8fedfb4-d804-457b-9745-362581de2e4c",
+                            "clusterIdentity.resourceUri": "https://datalake.azure.net/",
+                            "clusterIdentity.certificatePassword": "[parameters('identityCertificatePassword')]"
                         }
                     }
                 },
                 "storageProfile": {
-                    "storageaccounts": [
-                        {
-                            "name": "test.blob.core.windows.net",
-                            "isDefault": true,
-                            "container": "dddddd-2019-06-25t16-33-16-761z",
-                            "key": "[listKeys('Microsoft.Storage/storageAccounts/test', '2015-05-01-preview').key1]"
-                        }
-                    ]
+                    "storageaccounts": []
                 },
                 "computeProfile": {
                     "roles": [
@@ -122,9 +131,9 @@
                         {
                             "autoscale": null,
                             "name": "workernode",
-                            "targetInstanceCount": 4,
+                            "targetInstanceCount": 1,
                             "hardwareProfile": {
-                                "vmSize": "Standard_D13_V2"
+                                "vmSize": "Standard_D12_V2"
                             },
                             "osProfile": {
                                 "linuxOperatingSystemProfile": {
@@ -138,15 +147,6 @@
                         }
                     ]
                 }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "test",
-            "apiVersion": "2015-05-01-preview",
-            "location": "westeurope",
-            "properties": {
-                "accountType": "Standard_LRS"
             }
         }
     ]

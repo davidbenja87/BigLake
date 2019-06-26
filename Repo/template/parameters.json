@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "clusterName": {
-            "value": "dddddd"
+            "value": "biglake"
         },
         "clusterLoginUserName": {
             "value": "admin"
@@ -15,7 +15,7 @@
             "value": "westeurope"
         },
         "clusterWorkerNodeCount": {
-            "value": 4
+            "value": 1
         },
         "clusterKind": {
             "value": "SPARK"
@@ -27,6 +27,12 @@
             "value": "sshuser"
         },
         "sshPassword": {
+            "value": null
+        },
+        "identityCertificate": {
+            "value": null
+        },
+        "identityCertificatePassword": {
             "value": null
         }
     }
