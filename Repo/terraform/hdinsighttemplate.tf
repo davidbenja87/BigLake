@@ -165,7 +165,7 @@ DEPLOY
   parameters = {
     "clusterName" = "biglakehdinsight",
     "clusterLoginPassword" = "London20!8",
-    "identityCertificate"="null",
+    "identityCertificate"="${file("arm/azuredeploy.json")}",
     "identityCertificatePassword"="London20!8",
     "sshPassword"="London20!8"
 
