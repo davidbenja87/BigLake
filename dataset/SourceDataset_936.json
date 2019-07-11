@@ -1,0 +1,381 @@
+{
+	"name": "SourceDataset_936",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServerSystem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"folderPath": "data.csv"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Prop_0",
+				"type": "String"
+			},
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "Age",
+				"type": "String"
+			},
+			{
+				"name": "Photo",
+				"type": "String"
+			},
+			{
+				"name": "Nationality",
+				"type": "String"
+			},
+			{
+				"name": "Flag",
+				"type": "String"
+			},
+			{
+				"name": "Overall",
+				"type": "String"
+			},
+			{
+				"name": "Potential",
+				"type": "String"
+			},
+			{
+				"name": "Club",
+				"type": "String"
+			},
+			{
+				"name": "Club Logo",
+				"type": "String"
+			},
+			{
+				"name": "Value",
+				"type": "String"
+			},
+			{
+				"name": "Wage",
+				"type": "String"
+			},
+			{
+				"name": "Special",
+				"type": "String"
+			},
+			{
+				"name": "Preferred Foot",
+				"type": "String"
+			},
+			{
+				"name": "International Reputation",
+				"type": "String"
+			},
+			{
+				"name": "Weak Foot",
+				"type": "String"
+			},
+			{
+				"name": "Skill Moves",
+				"type": "String"
+			},
+			{
+				"name": "Work Rate",
+				"type": "String"
+			},
+			{
+				"name": "Body Type",
+				"type": "String"
+			},
+			{
+				"name": "Real Face",
+				"type": "String"
+			},
+			{
+				"name": "Position",
+				"type": "String"
+			},
+			{
+				"name": "Jersey Number",
+				"type": "String"
+			},
+			{
+				"name": "Joined",
+				"type": "String"
+			},
+			{
+				"name": "Loaned From",
+				"type": "String"
+			},
+			{
+				"name": "Contract Valid Until",
+				"type": "String"
+			},
+			{
+				"name": "Height",
+				"type": "String"
+			},
+			{
+				"name": "Weight",
+				"type": "String"
+			},
+			{
+				"name": "LS",
+				"type": "String"
+			},
+			{
+				"name": "ST",
+				"type": "String"
+			},
+			{
+				"name": "RS",
+				"type": "String"
+			},
+			{
+				"name": "LW",
+				"type": "String"
+			},
+			{
+				"name": "LF",
+				"type": "String"
+			},
+			{
+				"name": "CF",
+				"type": "String"
+			},
+			{
+				"name": "RF",
+				"type": "String"
+			},
+			{
+				"name": "RW",
+				"type": "String"
+			},
+			{
+				"name": "LAM",
+				"type": "String"
+			},
+			{
+				"name": "CAM",
+				"type": "String"
+			},
+			{
+				"name": "RAM",
+				"type": "String"
+			},
+			{
+				"name": "LM",
+				"type": "String"
+			},
+			{
+				"name": "LCM",
+				"type": "String"
+			},
+			{
+				"name": "CM",
+				"type": "String"
+			},
+			{
+				"name": "RCM",
+				"type": "String"
+			},
+			{
+				"name": "RM",
+				"type": "String"
+			},
+			{
+				"name": "LWB",
+				"type": "String"
+			},
+			{
+				"name": "LDM",
+				"type": "String"
+			},
+			{
+				"name": "CDM",
+				"type": "String"
+			},
+			{
+				"name": "RDM",
+				"type": "String"
+			},
+			{
+				"name": "RWB",
+				"type": "String"
+			},
+			{
+				"name": "LB",
+				"type": "String"
+			},
+			{
+				"name": "LCB",
+				"type": "String"
+			},
+			{
+				"name": "CB",
+				"type": "String"
+			},
+			{
+				"name": "RCB",
+				"type": "String"
+			},
+			{
+				"name": "RB",
+				"type": "String"
+			},
+			{
+				"name": "Crossing",
+				"type": "String"
+			},
+			{
+				"name": "Finishing",
+				"type": "String"
+			},
+			{
+				"name": "HeadingAccuracy",
+				"type": "String"
+			},
+			{
+				"name": "ShortPassing",
+				"type": "String"
+			},
+			{
+				"name": "Volleys",
+				"type": "String"
+			},
+			{
+				"name": "Dribbling",
+				"type": "String"
+			},
+			{
+				"name": "Curve",
+				"type": "String"
+			},
+			{
+				"name": "FKAccuracy",
+				"type": "String"
+			},
+			{
+				"name": "LongPassing",
+				"type": "String"
+			},
+			{
+				"name": "BallControl",
+				"type": "String"
+			},
+			{
+				"name": "Acceleration",
+				"type": "String"
+			},
+			{
+				"name": "SprintSpeed",
+				"type": "String"
+			},
+			{
+				"name": "Agility",
+				"type": "String"
+			},
+			{
+				"name": "Reactions",
+				"type": "String"
+			},
+			{
+				"name": "Balance",
+				"type": "String"
+			},
+			{
+				"name": "ShotPower",
+				"type": "String"
+			},
+			{
+				"name": "Jumping",
+				"type": "String"
+			},
+			{
+				"name": "Stamina",
+				"type": "String"
+			},
+			{
+				"name": "Strength",
+				"type": "String"
+			},
+			{
+				"name": "LongShots",
+				"type": "String"
+			},
+			{
+				"name": "Aggression",
+				"type": "String"
+			},
+			{
+				"name": "Interceptions",
+				"type": "String"
+			},
+			{
+				"name": "Positioning",
+				"type": "String"
+			},
+			{
+				"name": "Vision",
+				"type": "String"
+			},
+			{
+				"name": "Penalties",
+				"type": "String"
+			},
+			{
+				"name": "Composure",
+				"type": "String"
+			},
+			{
+				"name": "Marking",
+				"type": "String"
+			},
+			{
+				"name": "StandingTackle",
+				"type": "String"
+			},
+			{
+				"name": "SlidingTackle",
+				"type": "String"
+			},
+			{
+				"name": "GKDiving",
+				"type": "String"
+			},
+			{
+				"name": "GKHandling",
+				"type": "String"
+			},
+			{
+				"name": "GKKicking",
+				"type": "String"
+			},
+			{
+				"name": "GKPositioning",
+				"type": "String"
+			},
+			{
+				"name": "GKReflexes",
+				"type": "String"
+			},
+			{
+				"name": "Release Clause",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
