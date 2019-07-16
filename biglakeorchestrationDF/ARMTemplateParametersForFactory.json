@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "biglakeorchestrationDF"
+		},
+		"ADLSConnection_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedService_clusterPassword": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedService_clusterSshPassword": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedService_servicePrincipalKey": {
+			"value": ""
+		},
+		"FileServerSystem_password": {
+			"value": ""
+		},
+		"StorageLinkedService_connectionString": {
+			"value": ""
+		},
+		"mssql_connectionString": {
+			"value": ""
+		},
+		"ADLSConnection_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://pocbiglake.azuredatalakestore.net/webhdfs/v1"
+		},
+		"ADLSConnection_properties_typeProperties_servicePrincipalId": {
+			"value": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"ADLSConnection_properties_typeProperties_tenant": {
+			"value": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"ADLSConnection_properties_typeProperties_subscriptionId": {
+			"value": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"ADLSConnection_properties_typeProperties_resourceGroupName": {
+			"value": "poc"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
+			"value": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterResourceGroup": {
+			"value": "poc"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_servicePrincipalId": {
+			"value": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_tenant": {
+			"value": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterUserName": {
+			"value": "admin"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+			"value": "sshadmin"
+		},
+		"FileServerSystem_properties_typeProperties_userId": {
+			"value": "ben"
+		}
+	}
+}
