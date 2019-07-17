@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
+		"AzureBlobStorage2_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStoragebiglake_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStoragebiglake'"
+		},
 		"AzureHDInsightLinkedService_clusterPassword": {
 			"type": "secureString",
 			"metadata": "Secure string for 'clusterPassword' of 'AzureHDInsightLinkedService'"
@@ -27,13 +35,33 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDInsightLinkedService'"
 		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDinsightLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDinsightLS'"
+		},
 		"FileServerSystem_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileServerSystem'"
-		},
-		"StorageLinkedService_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'StorageLinkedService'"
 		},
 		"mssql_connectionString": {
 			"type": "secureString",
@@ -59,6 +87,18 @@
 			"type": "string",
 			"defaultValue": "poc"
 		},
+		"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://biglakestoragedata.blob.core.windows.net"
+		},
+		"AzureBlobStorage2_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureBlobStorage2_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
 		"AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
 			"type": "string",
 			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
@@ -83,6 +123,54 @@
 			"type": "string",
 			"defaultValue": "sshadmin"
 		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDinsightLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDinsightLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
 		"FileServerSystem_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "ben"
@@ -92,148 +180,6 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/CopyFiles')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_936",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "data.csv/"
-							},
-							{
-								"name": "Destination",
-								"value": "clusters/hdiadlcluster/landingzone/"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "FileServerReadSetting",
-									"recursive": true,
-									"wildcardFileName": "*.*"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSetting",
-									"skipLineCount": 0
-								}
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSetting"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSetting",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "SourceDataset_936",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DestinationDataset_936",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_936')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_936')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CopyfileLocal')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "CopyFromLocal",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "FileServerReadSetting",
-									"recursive": true,
-									"wildcardFileName": "*.*"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSetting"
-								}
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureDataLakeStoreWriteSetting"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSetting",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "DelimitedText1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DelimitedText2",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText2')]"
-			]
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
@@ -256,12 +202,12 @@
 							"rootPath": "adftutorial/spark/script",
 							"entryFilePath": "WordCount_Spark.py",
 							"sparkJobLinkedService": {
-								"referenceName": "AzureBlobStorage1",
+								"referenceName": "AzureBlobStoragebiglake",
 								"type": "LinkedServiceReference"
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "AzureHDInsightLinkedService",
+							"referenceName": "AzureHDInsightLinkedServiceBiglakeLS",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -269,1063 +215,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureHDInsightLinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "FileServerSystem",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "FileServerLocation",
-						"fileName": "firsttestdata.csv",
-						"folderPath": "Azure"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/FileServerSystem')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ADLSConnection",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"folderPath": "clusters/hdiadlcluster/landingzone"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ADLSConnection')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_936')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ADLSConnection",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"folderPath": "clusters/hdiadlcluster/landingzone"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": false,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ADLSConnection')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Parquet1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ADLSConnection",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"folderPath": "clusters/hdiadlcluster/rawdata"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ADLSConnection')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_936')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "FileServerSystem",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "FileServerLocation",
-						"folderPath": "data.csv"
-					},
-					"columnDelimiter": ",",
-					"rowDelimiter": "\n",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Prop_0",
-						"type": "String"
-					},
-					{
-						"name": "ID",
-						"type": "String"
-					},
-					{
-						"name": "Name",
-						"type": "String"
-					},
-					{
-						"name": "Age",
-						"type": "String"
-					},
-					{
-						"name": "Photo",
-						"type": "String"
-					},
-					{
-						"name": "Nationality",
-						"type": "String"
-					},
-					{
-						"name": "Flag",
-						"type": "String"
-					},
-					{
-						"name": "Overall",
-						"type": "String"
-					},
-					{
-						"name": "Potential",
-						"type": "String"
-					},
-					{
-						"name": "Club",
-						"type": "String"
-					},
-					{
-						"name": "Club Logo",
-						"type": "String"
-					},
-					{
-						"name": "Value",
-						"type": "String"
-					},
-					{
-						"name": "Wage",
-						"type": "String"
-					},
-					{
-						"name": "Special",
-						"type": "String"
-					},
-					{
-						"name": "Preferred Foot",
-						"type": "String"
-					},
-					{
-						"name": "International Reputation",
-						"type": "String"
-					},
-					{
-						"name": "Weak Foot",
-						"type": "String"
-					},
-					{
-						"name": "Skill Moves",
-						"type": "String"
-					},
-					{
-						"name": "Work Rate",
-						"type": "String"
-					},
-					{
-						"name": "Body Type",
-						"type": "String"
-					},
-					{
-						"name": "Real Face",
-						"type": "String"
-					},
-					{
-						"name": "Position",
-						"type": "String"
-					},
-					{
-						"name": "Jersey Number",
-						"type": "String"
-					},
-					{
-						"name": "Joined",
-						"type": "String"
-					},
-					{
-						"name": "Loaned From",
-						"type": "String"
-					},
-					{
-						"name": "Contract Valid Until",
-						"type": "String"
-					},
-					{
-						"name": "Height",
-						"type": "String"
-					},
-					{
-						"name": "Weight",
-						"type": "String"
-					},
-					{
-						"name": "LS",
-						"type": "String"
-					},
-					{
-						"name": "ST",
-						"type": "String"
-					},
-					{
-						"name": "RS",
-						"type": "String"
-					},
-					{
-						"name": "LW",
-						"type": "String"
-					},
-					{
-						"name": "LF",
-						"type": "String"
-					},
-					{
-						"name": "CF",
-						"type": "String"
-					},
-					{
-						"name": "RF",
-						"type": "String"
-					},
-					{
-						"name": "RW",
-						"type": "String"
-					},
-					{
-						"name": "LAM",
-						"type": "String"
-					},
-					{
-						"name": "CAM",
-						"type": "String"
-					},
-					{
-						"name": "RAM",
-						"type": "String"
-					},
-					{
-						"name": "LM",
-						"type": "String"
-					},
-					{
-						"name": "LCM",
-						"type": "String"
-					},
-					{
-						"name": "CM",
-						"type": "String"
-					},
-					{
-						"name": "RCM",
-						"type": "String"
-					},
-					{
-						"name": "RM",
-						"type": "String"
-					},
-					{
-						"name": "LWB",
-						"type": "String"
-					},
-					{
-						"name": "LDM",
-						"type": "String"
-					},
-					{
-						"name": "CDM",
-						"type": "String"
-					},
-					{
-						"name": "RDM",
-						"type": "String"
-					},
-					{
-						"name": "RWB",
-						"type": "String"
-					},
-					{
-						"name": "LB",
-						"type": "String"
-					},
-					{
-						"name": "LCB",
-						"type": "String"
-					},
-					{
-						"name": "CB",
-						"type": "String"
-					},
-					{
-						"name": "RCB",
-						"type": "String"
-					},
-					{
-						"name": "RB",
-						"type": "String"
-					},
-					{
-						"name": "Crossing",
-						"type": "String"
-					},
-					{
-						"name": "Finishing",
-						"type": "String"
-					},
-					{
-						"name": "HeadingAccuracy",
-						"type": "String"
-					},
-					{
-						"name": "ShortPassing",
-						"type": "String"
-					},
-					{
-						"name": "Volleys",
-						"type": "String"
-					},
-					{
-						"name": "Dribbling",
-						"type": "String"
-					},
-					{
-						"name": "Curve",
-						"type": "String"
-					},
-					{
-						"name": "FKAccuracy",
-						"type": "String"
-					},
-					{
-						"name": "LongPassing",
-						"type": "String"
-					},
-					{
-						"name": "BallControl",
-						"type": "String"
-					},
-					{
-						"name": "Acceleration",
-						"type": "String"
-					},
-					{
-						"name": "SprintSpeed",
-						"type": "String"
-					},
-					{
-						"name": "Agility",
-						"type": "String"
-					},
-					{
-						"name": "Reactions",
-						"type": "String"
-					},
-					{
-						"name": "Balance",
-						"type": "String"
-					},
-					{
-						"name": "ShotPower",
-						"type": "String"
-					},
-					{
-						"name": "Jumping",
-						"type": "String"
-					},
-					{
-						"name": "Stamina",
-						"type": "String"
-					},
-					{
-						"name": "Strength",
-						"type": "String"
-					},
-					{
-						"name": "LongShots",
-						"type": "String"
-					},
-					{
-						"name": "Aggression",
-						"type": "String"
-					},
-					{
-						"name": "Interceptions",
-						"type": "String"
-					},
-					{
-						"name": "Positioning",
-						"type": "String"
-					},
-					{
-						"name": "Vision",
-						"type": "String"
-					},
-					{
-						"name": "Penalties",
-						"type": "String"
-					},
-					{
-						"name": "Composure",
-						"type": "String"
-					},
-					{
-						"name": "Marking",
-						"type": "String"
-					},
-					{
-						"name": "StandingTackle",
-						"type": "String"
-					},
-					{
-						"name": "SlidingTackle",
-						"type": "String"
-					},
-					{
-						"name": "GKDiving",
-						"type": "String"
-					},
-					{
-						"name": "GKHandling",
-						"type": "String"
-					},
-					{
-						"name": "GKKicking",
-						"type": "String"
-					},
-					{
-						"name": "GKPositioning",
-						"type": "String"
-					},
-					{
-						"name": "GKReflexes",
-						"type": "String"
-					},
-					{
-						"name": "Release Clause",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/FileServerSystem')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_paq')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "mssql",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"cw_tableName": {
-						"type": "String"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"tableName": {
-						"value": "@dataset().cw_tableName",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/mssql')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStoragebiglake')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureHDInsightLinkedServiceBiglakeLS')]"
 			]
 		},
 		{
@@ -1358,6 +249,38 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"serviceEndpoint": "[parameters('AzureBlobStorage2_properties_typeProperties_serviceEndpoint')]",
+					"tenant": "[parameters('AzureBlobStorage2_properties_typeProperties_tenant')]",
+					"servicePrincipalId": "[parameters('AzureBlobStorage2_properties_typeProperties_servicePrincipalId')]",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureBlobStorage2_servicePrincipalKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStoragebiglake')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStoragebiglake_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -1411,6 +334,102 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureHDInsightLinkedServiceBiglakeLS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "spark",
+					"clusterSize": 1,
+					"timeToLive": "00:05:00",
+					"version": "3.6",
+					"hostSubscriptionId": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId')]",
+					"clusterResourceGroup": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup')]",
+					"servicePrincipalId": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId')]",
+					"osType": "Linux",
+					"tenant": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant')]",
+					"clusterNamePrefix": "biglake",
+					"clusterUserName": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName')]",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterPassword')]"
+					},
+					"clusterSshUserName": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName')]",
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword')]"
+					},
+					"sparkVersion": "",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "AzureBlobStoragebiglake",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStoragebiglake')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureHDinsightLS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "spark",
+					"clusterSize": 1,
+					"timeToLive": "00:05:00",
+					"version": "3.6",
+					"hostSubscriptionId": "[parameters('AzureHDinsightLS_properties_typeProperties_hostSubscriptionId')]",
+					"clusterResourceGroup": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterResourceGroup')]",
+					"servicePrincipalId": "[parameters('AzureHDinsightLS_properties_typeProperties_servicePrincipalId')]",
+					"osType": "Linux",
+					"tenant": "[parameters('AzureHDinsightLS_properties_typeProperties_tenant')]",
+					"clusterNamePrefix": "biglake",
+					"clusterUserName": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterUserName')]",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDinsightLS_clusterPassword')]"
+					},
+					"clusterSshUserName": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterSshUserName')]",
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDinsightLS_clusterSshPassword')]"
+					},
+					"sparkVersion": "",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDinsightLS_servicePrincipalKey')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "AzureBlobStorage2",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/FileServerSystem')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -1433,19 +452,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/DESKTOPJNMCEK6')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/StorageLinkedService')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('StorageLinkedService_connectionString')]"
-				}
-			},
-			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/mssql')]",

@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
+		"AzureBlobStorage2_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStoragebiglake_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStoragebiglake'"
+		},
 		"AzureHDInsightLinkedService_clusterPassword": {
 			"type": "secureString",
 			"metadata": "Secure string for 'clusterPassword' of 'AzureHDInsightLinkedService'"
@@ -27,13 +35,33 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDInsightLinkedService'"
 		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDinsightLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDinsightLS'"
+		},
 		"FileServerSystem_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileServerSystem'"
-		},
-		"StorageLinkedService_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'StorageLinkedService'"
 		},
 		"mssql_connectionString": {
 			"type": "secureString",
@@ -59,6 +87,18 @@
 			"type": "string",
 			"defaultValue": "poc"
 		},
+		"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://biglakestoragedata.blob.core.windows.net"
+		},
+		"AzureBlobStorage2_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureBlobStorage2_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
 		"AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
 			"type": "string",
 			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
@@ -80,6 +120,54 @@
 			"defaultValue": "admin"
 		},
 		"AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDinsightLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDinsightLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterSshUserName": {
 			"type": "string",
 			"defaultValue": "sshadmin"
 		},
@@ -120,8 +208,11 @@
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
-					"StorageLinkedService_connectionString": {
-						"value": "[parameters('StorageLinkedService_connectionString')]"
+					"AzureBlobStorage2_servicePrincipalKey": {
+						"value": "[parameters('AzureBlobStorage2_servicePrincipalKey')]"
+					},
+					"AzureBlobStoragebiglake_connectionString": {
+						"value": "[parameters('AzureBlobStoragebiglake_connectionString')]"
 					},
 					"AzureHDInsightLinkedService_clusterPassword": {
 						"value": "[parameters('AzureHDInsightLinkedService_clusterPassword')]"
@@ -131,6 +222,24 @@
 					},
 					"AzureHDInsightLinkedService_servicePrincipalKey": {
 						"value": "[parameters('AzureHDInsightLinkedService_servicePrincipalKey')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_clusterPassword": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterPassword')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey')]"
+					},
+					"AzureHDinsightLS_clusterPassword": {
+						"value": "[parameters('AzureHDinsightLS_clusterPassword')]"
+					},
+					"AzureHDinsightLS_clusterSshPassword": {
+						"value": "[parameters('AzureHDinsightLS_clusterSshPassword')]"
+					},
+					"AzureHDinsightLS_servicePrincipalKey": {
+						"value": "[parameters('AzureHDinsightLS_servicePrincipalKey')]"
 					},
 					"FileServerSystem_password": {
 						"value": "[parameters('FileServerSystem_password')]"
@@ -153,6 +262,15 @@
 					"ADLSConnection_properties_typeProperties_resourceGroupName": {
 						"value": "[parameters('ADLSConnection_properties_typeProperties_resourceGroupName')]"
 					},
+					"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('AzureBlobStorage2_properties_typeProperties_serviceEndpoint')]"
+					},
+					"AzureBlobStorage2_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureBlobStorage2_properties_typeProperties_tenant')]"
+					},
+					"AzureBlobStorage2_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureBlobStorage2_properties_typeProperties_servicePrincipalId')]"
+					},
 					"AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
 						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId')]"
 					},
@@ -170,6 +288,42 @@
 					},
 					"AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
 						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_tenant')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterUserName')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterSshUserName')]"
 					},
 					"FileServerSystem_properties_typeProperties_userId": {
 						"value": "[parameters('FileServerSystem_properties_typeProperties_userId')]"
