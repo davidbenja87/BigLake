@@ -27,8 +27,11 @@ dflocalG = dflocal.select(dflocal["Gender"],
     f.when(dflocal["treatment"] == "No",1).otherwise(0).alias("All-No")
 )
 
-print(dflocalG.dtypes)
-# dflocalG.groupBy(dflocalG["Gender"]).agg(sum("All-Yes"),sum("All-No"))
+print(spark.catalog.listTables)
+
+
+# print(StructType(dflocalG))
+# dflocalG.groupBy(dflocalG["Gender"]).agg(sum("All-Yes"))
 # df.groupBy("gender").
 # dflocal.
 # 
