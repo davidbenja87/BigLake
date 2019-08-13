@@ -1,0 +1,8 @@
+{
+	"name": "AzureSearchIndex1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSearchIndex",
+		"schema": []
+	}
+}
