@@ -1,0 +1,23 @@
+{
+	"name": "SalesforceUnityAccountDL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakepocplaygroundrba",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"folderPath": "Landing Zone/Supported Track/Accuity"
+			},
+			"columnDelimiter": "~",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

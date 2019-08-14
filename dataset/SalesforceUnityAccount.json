@@ -1,0 +1,111 @@
+{
+	"name": "SalesforceUnityAccount",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RDSSystestRawdata",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CreatedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "CreatedById",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "LastModifiedById",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OwnerId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Territory_Override__c",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Account_Ref__c",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Credit_Status_Code__c",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingStreet",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Region__c",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingCountry",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingState",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingPostalCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Fax",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RecordTypeId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NumberOfEmployees",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ParentId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Industry",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SRC_SFDC_ID__c",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BWDRE_Account"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
