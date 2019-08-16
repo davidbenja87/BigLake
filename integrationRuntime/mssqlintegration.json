@@ -1,5 +1,5 @@
 {
-	"name": "mssqlintegration",
+	"name": "MssqlIntegration",
 	"properties": {
 		"type": "SelfHosted"
 	}
