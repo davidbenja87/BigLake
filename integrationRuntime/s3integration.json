@@ -1,0 +1,6 @@
+{
+	"name": "s3integration",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
