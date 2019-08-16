@@ -22,12 +22,24 @@ spark = SparkSession.builder.appName('abc').getOrCreate()
 
 #read parquet file and write into json
 
-dfParJson = spark.read\
-    .format("parquet")\
-    .option("mode", "failfast")\
-    .load("adl://biglakepoctest.azuredatalakestore.net/RawZone/survey-data/")
+# dfParJson = spark.read\
+#     .format("parquet")\
+#     .option("mode", "failfast")\
+#     .load("adl://biglakepoctest.azuredatalakestore.net/RawZone/survey-data/")
+#
+# dfParJson.write\
+#     .format("json")\
+#     .mode("overwrite")\
+#     .save("adl://biglakepoctest.azuredatalakestore.net/RawZone/json-data/")
 
-dfParJson.write\
+#read json file and writ into ORC
+
+dfJsonOrc = spark.read\
     .format("json")\
-    .mode("overwrite")\
-    .save("adl://biglakepoctest.azuredatalakestore.net/RawZone/json-data/")
+    .option("mode", "failfast")\
+    .load("adl://biglakepoctest.azuredatalakestore.net/RawZone/json-data/")
+
+# dfJsonOrc.write\
+#     .format("orc")\
+#     .mode("overwrite")\
+#     .save("adl://biglakepoctest.azuredatalakestore.net/RawZone/orc-data/")
