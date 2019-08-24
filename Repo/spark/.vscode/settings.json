@@ -1,3 +1,13 @@
 {
-    "python.pythonPath": "C:\\Users\\sugumarb\\AppData\\Local\\Programs\\Python\\Python35\\python.exe"
+    "python.pythonPath": "C:\\Users\\sugumarb\\AppData\\Local\\Programs\\Python\\Python35\\python.exe",
+    "hdinsightJobSumission.ClusterConf": [
+        {
+            "name": "HdInsightBiglakeLink: hdinsightcluster1pg (admin)",
+            "filePath": "c:\\Users\\sugumarb\\Documents\\BigLake\\Repo\\spark\\Learning\\Batch\\resourcegroupcreation.py"
+        },
+        {
+            "name": "HdInsightBiglakeLink: hdinsightcluster1pg (admin)",
+            "filePath": "c:\\Users\\sugumarb\\Documents\\BigLake\\Repo\\spark\\Learning\\Batch\\helloworld.py"
+        }
+    ]
 }

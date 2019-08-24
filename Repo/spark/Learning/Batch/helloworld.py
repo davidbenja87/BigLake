@@ -7,17 +7,57 @@ if __name__ == "__main__":
         .builder\
         .appName("PythonWordCount")\
         .getOrCreate()
-
+#read azure data lake gen 1
     df = spark.read\
     .format("csv")\
     .option("header", "true")\
+    .option("sep", "|")\
     .option("inferSchema", "true")\
     .option("mode", "failfast")\
     .option("nullValue", "NA")\
-    .option("path", "adl://datalakepocplaygroundrba.azuredatalakestore.net/Landing%20Zone/Supported%20Track/Accuity/dbo.BWDRE_Account.txt")\
+    .option("path", "adl://datalakepocplaygroundrba.azuredatalakestore.net/Landing Zone/Supported Track/Accuity/minecraftstory.txt")\
     .load()
 
-    df.show()
+#read azure data lake gen 2
+    df = spark.read\
+        .format("csv")\
+        .option("header", "true")\
+        .option("inferSchema", "true")\
+        .option("mode", "failfast")\
+        .option("nullValue", "NA")\
+        .option("path", "abfs://bdap@biglakestorageaccount.dfs.core.windows.net/example/data/fruits.txt")\
+        .load()
+    
+    df.show()    
+    
+  
+
+    # df.write\
+    # .format("parquet")\
+    # .mode("overwrite")\
+    # .save("adl://datalakepocplaygroundrba.azuredatalakestore.net/Raw Zone/Supported Track/Accuity/parquet-data/")
+
+
+    
+    # dfParquet = spark.read\
+    # .format("parquet")\
+    # .option("header", "true")\
+    # .option("inferSchema", "true")\
+    # .option("mode", "failfast")\
+    # .option("nullValue", "NA")\
+    # .load( "adl://datalakepocplaygroundrba.azuredatalakestore.net/Raw Zone/Supported Track/Accuity/parquet-data/")
+
+    # df.write\
+    # .format("csv")\
+    # .mode("overwrite")\
+    # .saveAsTable("mysparkdb.account")
+
+#create database
+    spark.sql('Create database test')
+    # print(spark.catalog.listDatabases.show(False))
+
+
+    # df.show()
     
 
  
