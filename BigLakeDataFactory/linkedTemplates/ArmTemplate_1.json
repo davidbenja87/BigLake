@@ -1,0 +1,498 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "BigLakeDataFactory"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDinsightLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDinsightLS'"
+		},
+		"FileServerSystem_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServerSystem'"
+		},
+		"LocalFilesSystem_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LocalFilesSystem'"
+		},
+		"RDSDevRawdata_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'RDSDevRawdata'"
+		},
+		"RDSSystestRawdata_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'RDSSystestRawdata'"
+		},
+		"S3DevRawdata_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'S3DevRawdata'"
+		},
+		"biglakehdinsightcluster_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'biglakehdinsightcluster'"
+		},
+		"biglakehdinsightcluster_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'biglakehdinsightcluster'"
+		},
+		"biglakehdinsightcluster_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'biglakehdinsightcluster'"
+		},
+		"hdinsightclusterlink_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'hdinsightclusterlink'"
+		},
+		"hdinsightclusterlink_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'hdinsightclusterlink'"
+		},
+		"hdinsightclusterlink_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'hdinsightclusterlink'"
+		},
+		"mssql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'mssql'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDinsightLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDinsightLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"FileServerSystem_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\Ben\\Data\\"
+		},
+		"FileServerSystem_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "ben"
+		},
+		"LocalFilesSystem_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\BDAP_POC\\Rawdata"
+		},
+		"LocalFilesSystem_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "b2b\\arzuagaa"
+		},
+		"S3DevRawdata_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIAIAKUO5NYCDA2ZMYA"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "bdap-poc-playground"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"hdinsightclusterlink_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"hdinsightclusterlink_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "bdap-poc-playground"
+		},
+		"hdinsightclusterlink_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"hdinsightclusterlink_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureHDInsightLinkedServiceBiglakeLS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "spark",
+					"clusterSize": 1,
+					"timeToLive": "00:05:00",
+					"version": "3.6",
+					"hostSubscriptionId": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId')]",
+					"clusterResourceGroup": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup')]",
+					"servicePrincipalId": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId')]",
+					"osType": "Linux",
+					"tenant": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant')]",
+					"clusterNamePrefix": "biglake",
+					"clusterUserName": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName')]",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterPassword')]"
+					},
+					"clusterSshUserName": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName')]",
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword')]"
+					},
+					"sparkVersion": "",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "AzureBlobStoragebiglake",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureHDinsightLS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "spark",
+					"clusterSize": 1,
+					"timeToLive": "00:05:00",
+					"version": "3.6",
+					"hostSubscriptionId": "[parameters('AzureHDinsightLS_properties_typeProperties_hostSubscriptionId')]",
+					"clusterResourceGroup": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterResourceGroup')]",
+					"servicePrincipalId": "[parameters('AzureHDinsightLS_properties_typeProperties_servicePrincipalId')]",
+					"osType": "Linux",
+					"tenant": "[parameters('AzureHDinsightLS_properties_typeProperties_tenant')]",
+					"clusterNamePrefix": "biglake",
+					"clusterUserName": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterUserName')]",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDinsightLS_clusterPassword')]"
+					},
+					"clusterSshUserName": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterSshUserName')]",
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDinsightLS_clusterSshPassword')]"
+					},
+					"sparkVersion": "",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureHDinsightLS_servicePrincipalKey')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "AzureBlobStorage2",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/FileServerSystem')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('FileServerSystem_properties_typeProperties_host')]",
+					"userId": "[parameters('FileServerSystem_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('FileServerSystem_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "DESKTOPJNMCEK6",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LocalFilesSystem')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "LocalFilesSystem",
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('LocalFilesSystem_properties_typeProperties_host')]",
+					"userId": "[parameters('LocalFilesSystem_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LocalFilesSystem_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "RDSIntegrationRunTime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/RDSDevRawdata')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "RDSDevRawdata",
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('RDSDevRawdata_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "RDSIntegrationRunTime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/RDSSystestRawdata')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "RDSSystestRawdata",
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('RDSSystestRawdata_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "RDSIntegrationRunTime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/S3DevRawdata')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "S3DevRawdata",
+				"annotations": [],
+				"type": "AmazonS3",
+				"typeProperties": {
+					"serviceUrl": "https://s3-eu-west-1.amazonaws.com/coa-dev-rawdata",
+					"accessKeyId": "[parameters('S3DevRawdata_properties_typeProperties_accessKeyId')]",
+					"secretAccessKey": {
+						"type": "SecureString",
+						"value": "[parameters('S3DevRawdata_secretAccessKey')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "RDSIntegrationRunTime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/biglakehdinsightcluster')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "spark",
+					"clusterSize": 1,
+					"timeToLive": "00:05:00",
+					"version": "3.6",
+					"hostSubscriptionId": "[parameters('biglakehdinsightcluster_properties_typeProperties_hostSubscriptionId')]",
+					"clusterResourceGroup": "[parameters('biglakehdinsightcluster_properties_typeProperties_clusterResourceGroup')]",
+					"servicePrincipalId": "[parameters('biglakehdinsightcluster_properties_typeProperties_servicePrincipalId')]",
+					"osType": "Linux",
+					"tenant": "[parameters('biglakehdinsightcluster_properties_typeProperties_tenant')]",
+					"clusterNamePrefix": "biglake",
+					"clusterUserName": "[parameters('biglakehdinsightcluster_properties_typeProperties_clusterUserName')]",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "[parameters('biglakehdinsightcluster_clusterPassword')]"
+					},
+					"clusterSshUserName": "[parameters('biglakehdinsightcluster_properties_typeProperties_clusterSshUserName')]",
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "[parameters('biglakehdinsightcluster_clusterSshPassword')]"
+					},
+					"sparkVersion": "",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('biglakehdinsightcluster_servicePrincipalKey')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "storageaccount",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/hdinsightclusterlink')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HDInsightOnDemand",
+				"typeProperties": {
+					"clusterType": "spark",
+					"clusterSize": 1,
+					"timeToLive": "00:05:00",
+					"version": "3.6",
+					"hostSubscriptionId": "[parameters('hdinsightclusterlink_properties_typeProperties_hostSubscriptionId')]",
+					"clusterResourceGroup": "[parameters('hdinsightclusterlink_properties_typeProperties_clusterResourceGroup')]",
+					"servicePrincipalId": "[parameters('hdinsightclusterlink_properties_typeProperties_servicePrincipalId')]",
+					"tenant": "[parameters('hdinsightclusterlink_properties_typeProperties_tenant')]",
+					"clusterNamePrefix": "big",
+					"clusterPassword": {
+						"type": "SecureString",
+						"value": "[parameters('hdinsightclusterlink_clusterPassword')]"
+					},
+					"clusterSshPassword": {
+						"type": "SecureString",
+						"value": "[parameters('hdinsightclusterlink_clusterSshPassword')]"
+					},
+					"sparkVersion": "",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "[parameters('hdinsightclusterlink_servicePrincipalKey')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "storageaccountlink",
+						"type": "LinkedServiceReference"
+					},
+					"headNodeSize": "",
+					"dataNodeSize": "",
+					"zookeeperNodeSize": "",
+					"subnetName": "",
+					"virtualNetworkId": ""
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/mssql')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('mssql_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "mssqlintegrationruntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

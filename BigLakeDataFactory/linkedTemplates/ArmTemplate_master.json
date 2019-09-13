@@ -1,0 +1,615 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory Name",
+			"defaultValue": "BigLakeDataFactory"
+		},
+		"AmazonS31_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'AmazonS31'"
+		},
+		"AmazonS32_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'AmazonS32'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStoragebiglake_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStoragebiglake'"
+		},
+		"AzureHDInsightLinkedService_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDInsightLinkedService'"
+		},
+		"AzureHDInsightLinkedService_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDInsightLinkedService'"
+		},
+		"AzureHDInsightLinkedService_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDInsightLinkedService'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDInsightLinkedServiceBiglakeLS'"
+		},
+		"AzureHDinsightLS_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'AzureHDinsightLS'"
+		},
+		"AzureHDinsightLS_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureHDinsightLS'"
+		},
+		"FileServerSystem_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServerSystem'"
+		},
+		"LocalFilesSystem_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LocalFilesSystem'"
+		},
+		"RDSDevRawdata_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'RDSDevRawdata'"
+		},
+		"RDSSystestRawdata_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'RDSSystestRawdata'"
+		},
+		"S3DevRawdata_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'S3DevRawdata'"
+		},
+		"biglakehdinsightcluster_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'biglakehdinsightcluster'"
+		},
+		"biglakehdinsightcluster_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'biglakehdinsightcluster'"
+		},
+		"biglakehdinsightcluster_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'biglakehdinsightcluster'"
+		},
+		"datalakepocplaygroundrba_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'datalakepocplaygroundrba'"
+		},
+		"hdinsightclusterlink_clusterPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterPassword' of 'hdinsightclusterlink'"
+		},
+		"hdinsightclusterlink_clusterSshPassword": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clusterSshPassword' of 'hdinsightclusterlink'"
+		},
+		"hdinsightclusterlink_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'hdinsightclusterlink'"
+		},
+		"mssql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'mssql'"
+		},
+		"storageaccount_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'storageaccount'"
+		},
+		"storageaccountlink_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'storageaccountlink'"
+		},
+		"AmazonS31_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIAXE7FK6Y4OQM5GMHK"
+		},
+		"AmazonS32_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIAXE7FK6Y4OQM5GMHK"
+		},
+		"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://biglakestoragedata.blob.core.windows.net"
+		},
+		"AzureBlobStorage2_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureBlobStorage2_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "poc"
+		},
+		"AzureHDinsightLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDinsightLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kvpocplaygroundrba.vault.azure.net/"
+		},
+		"FileServerSystem_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\Ben\\Data\\"
+		},
+		"FileServerSystem_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "ben"
+		},
+		"LocalFilesSystem_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\BDAP_POC\\Rawdata"
+		},
+		"LocalFilesSystem_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "b2b\\arzuagaa"
+		},
+		"S3DevRawdata_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIAIAKUO5NYCDA2ZMYA"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "bdap-poc-playground"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterUserName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterSshUserName": {
+			"type": "string",
+			"defaultValue": "sshadmin"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://datalakepocplaygroundrba.azuredatalakestore.net/webhdfs/v1"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "bdap-poc-playground"
+		},
+		"hdinsightclusterlink_properties_typeProperties_hostSubscriptionId": {
+			"type": "string",
+			"defaultValue": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"hdinsightclusterlink_properties_typeProperties_clusterResourceGroup": {
+			"type": "string",
+			"defaultValue": "bdap-poc-playground"
+		},
+		"hdinsightclusterlink_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"hdinsightclusterlink_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"storageaccount_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://csbf444d84a049ax43b9xbe3.blob.core.windows.net"
+		},
+		"storageaccount_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"storageaccount_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"storageaccountlink_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://biglakestorage.dfs.core.windows.net"
+		},
+		"storageaccountlink_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"storageaccountlink_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas Token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AmazonS31_secretAccessKey": {
+						"value": "[parameters('AmazonS31_secretAccessKey')]"
+					},
+					"AmazonS32_secretAccessKey": {
+						"value": "[parameters('AmazonS32_secretAccessKey')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_servicePrincipalKey": {
+						"value": "[parameters('AzureBlobStorage2_servicePrincipalKey')]"
+					},
+					"AzureBlobStoragebiglake_connectionString": {
+						"value": "[parameters('AzureBlobStoragebiglake_connectionString')]"
+					},
+					"datalakepocplaygroundrba_servicePrincipalKey": {
+						"value": "[parameters('datalakepocplaygroundrba_servicePrincipalKey')]"
+					},
+					"storageaccount_servicePrincipalKey": {
+						"value": "[parameters('storageaccount_servicePrincipalKey')]"
+					},
+					"storageaccountlink_servicePrincipalKey": {
+						"value": "[parameters('storageaccountlink_servicePrincipalKey')]"
+					},
+					"AzureHDInsightLinkedService_clusterPassword": {
+						"value": "[parameters('AzureHDInsightLinkedService_clusterPassword')]"
+					},
+					"AzureHDInsightLinkedService_clusterSshPassword": {
+						"value": "[parameters('AzureHDInsightLinkedService_clusterSshPassword')]"
+					},
+					"AzureHDInsightLinkedService_servicePrincipalKey": {
+						"value": "[parameters('AzureHDInsightLinkedService_servicePrincipalKey')]"
+					},
+					"AmazonS31_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('AmazonS31_properties_typeProperties_accessKeyId')]"
+					},
+					"AmazonS32_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('AmazonS32_properties_typeProperties_accessKeyId')]"
+					},
+					"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('AzureBlobStorage2_properties_typeProperties_serviceEndpoint')]"
+					},
+					"AzureBlobStorage2_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureBlobStorage2_properties_typeProperties_tenant')]"
+					},
+					"AzureBlobStorage2_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureBlobStorage2_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"datalakepocplaygroundrba_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('datalakepocplaygroundrba_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"datalakepocplaygroundrba_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('datalakepocplaygroundrba_properties_typeProperties_servicePrincipalId')]"
+					},
+					"datalakepocplaygroundrba_properties_typeProperties_tenant": {
+						"value": "[parameters('datalakepocplaygroundrba_properties_typeProperties_tenant')]"
+					},
+					"datalakepocplaygroundrba_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('datalakepocplaygroundrba_properties_typeProperties_subscriptionId')]"
+					},
+					"datalakepocplaygroundrba_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('datalakepocplaygroundrba_properties_typeProperties_resourceGroupName')]"
+					},
+					"storageaccount_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('storageaccount_properties_typeProperties_serviceEndpoint')]"
+					},
+					"storageaccount_properties_typeProperties_tenant": {
+						"value": "[parameters('storageaccount_properties_typeProperties_tenant')]"
+					},
+					"storageaccount_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('storageaccount_properties_typeProperties_servicePrincipalId')]"
+					},
+					"storageaccountlink_properties_typeProperties_url": {
+						"value": "[parameters('storageaccountlink_properties_typeProperties_url')]"
+					},
+					"storageaccountlink_properties_typeProperties_tenant": {
+						"value": "[parameters('storageaccountlink_properties_typeProperties_tenant')]"
+					},
+					"storageaccountlink_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('storageaccountlink_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"AzureHDInsightLinkedService_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"AzureHDInsightLinkedService_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureHDInsightLinkedService_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_tenant')]"
+					},
+					"AzureHDInsightLinkedService_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_clusterUserName')]"
+					},
+					"AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_clusterPassword": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterPassword')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey')]"
+					},
+					"AzureHDinsightLS_clusterPassword": {
+						"value": "[parameters('AzureHDinsightLS_clusterPassword')]"
+					},
+					"AzureHDinsightLS_clusterSshPassword": {
+						"value": "[parameters('AzureHDinsightLS_clusterSshPassword')]"
+					},
+					"AzureHDinsightLS_servicePrincipalKey": {
+						"value": "[parameters('AzureHDinsightLS_servicePrincipalKey')]"
+					},
+					"FileServerSystem_password": {
+						"value": "[parameters('FileServerSystem_password')]"
+					},
+					"LocalFilesSystem_password": {
+						"value": "[parameters('LocalFilesSystem_password')]"
+					},
+					"RDSDevRawdata_connectionString": {
+						"value": "[parameters('RDSDevRawdata_connectionString')]"
+					},
+					"RDSSystestRawdata_connectionString": {
+						"value": "[parameters('RDSSystestRawdata_connectionString')]"
+					},
+					"S3DevRawdata_secretAccessKey": {
+						"value": "[parameters('S3DevRawdata_secretAccessKey')]"
+					},
+					"biglakehdinsightcluster_clusterPassword": {
+						"value": "[parameters('biglakehdinsightcluster_clusterPassword')]"
+					},
+					"biglakehdinsightcluster_clusterSshPassword": {
+						"value": "[parameters('biglakehdinsightcluster_clusterSshPassword')]"
+					},
+					"biglakehdinsightcluster_servicePrincipalKey": {
+						"value": "[parameters('biglakehdinsightcluster_servicePrincipalKey')]"
+					},
+					"hdinsightclusterlink_clusterPassword": {
+						"value": "[parameters('hdinsightclusterlink_clusterPassword')]"
+					},
+					"hdinsightclusterlink_clusterSshPassword": {
+						"value": "[parameters('hdinsightclusterlink_clusterSshPassword')]"
+					},
+					"hdinsightclusterlink_servicePrincipalKey": {
+						"value": "[parameters('hdinsightclusterlink_servicePrincipalKey')]"
+					},
+					"mssql_connectionString": {
+						"value": "[parameters('mssql_connectionString')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName')]"
+					},
+					"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_tenant')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterUserName')]"
+					},
+					"AzureHDinsightLS_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('AzureHDinsightLS_properties_typeProperties_clusterSshUserName')]"
+					},
+					"FileServerSystem_properties_typeProperties_host": {
+						"value": "[parameters('FileServerSystem_properties_typeProperties_host')]"
+					},
+					"FileServerSystem_properties_typeProperties_userId": {
+						"value": "[parameters('FileServerSystem_properties_typeProperties_userId')]"
+					},
+					"LocalFilesSystem_properties_typeProperties_host": {
+						"value": "[parameters('LocalFilesSystem_properties_typeProperties_host')]"
+					},
+					"LocalFilesSystem_properties_typeProperties_userId": {
+						"value": "[parameters('LocalFilesSystem_properties_typeProperties_userId')]"
+					},
+					"S3DevRawdata_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('S3DevRawdata_properties_typeProperties_accessKeyId')]"
+					},
+					"biglakehdinsightcluster_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('biglakehdinsightcluster_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"biglakehdinsightcluster_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('biglakehdinsightcluster_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"biglakehdinsightcluster_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('biglakehdinsightcluster_properties_typeProperties_servicePrincipalId')]"
+					},
+					"biglakehdinsightcluster_properties_typeProperties_tenant": {
+						"value": "[parameters('biglakehdinsightcluster_properties_typeProperties_tenant')]"
+					},
+					"biglakehdinsightcluster_properties_typeProperties_clusterUserName": {
+						"value": "[parameters('biglakehdinsightcluster_properties_typeProperties_clusterUserName')]"
+					},
+					"biglakehdinsightcluster_properties_typeProperties_clusterSshUserName": {
+						"value": "[parameters('biglakehdinsightcluster_properties_typeProperties_clusterSshUserName')]"
+					},
+					"hdinsightclusterlink_properties_typeProperties_hostSubscriptionId": {
+						"value": "[parameters('hdinsightclusterlink_properties_typeProperties_hostSubscriptionId')]"
+					},
+					"hdinsightclusterlink_properties_typeProperties_clusterResourceGroup": {
+						"value": "[parameters('hdinsightclusterlink_properties_typeProperties_clusterResourceGroup')]"
+					},
+					"hdinsightclusterlink_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('hdinsightclusterlink_properties_typeProperties_servicePrincipalId')]"
+					},
+					"hdinsightclusterlink_properties_typeProperties_tenant": {
+						"value": "[parameters('hdinsightclusterlink_properties_typeProperties_tenant')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
+		}
+	]
+}

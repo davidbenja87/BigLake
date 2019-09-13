@@ -1,0 +1,252 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "BigLakeDataFactory"
+		},
+		"AmazonS31_secretAccessKey": {
+			"value": ""
+		},
+		"AmazonS32_secretAccessKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureBlobStoragebiglake_connectionString": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedService_clusterPassword": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedService_clusterSshPassword": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedService_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterPassword": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_clusterSshPassword": {
+			"value": ""
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureHDinsightLS_clusterPassword": {
+			"value": ""
+		},
+		"AzureHDinsightLS_clusterSshPassword": {
+			"value": ""
+		},
+		"AzureHDinsightLS_servicePrincipalKey": {
+			"value": ""
+		},
+		"FileServerSystem_password": {
+			"value": ""
+		},
+		"LocalFilesSystem_password": {
+			"value": ""
+		},
+		"RDSDevRawdata_connectionString": {
+			"value": ""
+		},
+		"RDSSystestRawdata_connectionString": {
+			"value": ""
+		},
+		"S3DevRawdata_secretAccessKey": {
+			"value": ""
+		},
+		"biglakehdinsightcluster_clusterPassword": {
+			"value": ""
+		},
+		"biglakehdinsightcluster_clusterSshPassword": {
+			"value": ""
+		},
+		"biglakehdinsightcluster_servicePrincipalKey": {
+			"value": ""
+		},
+		"datalakepocplaygroundrba_servicePrincipalKey": {
+			"value": ""
+		},
+		"hdinsightclusterlink_clusterPassword": {
+			"value": ""
+		},
+		"hdinsightclusterlink_clusterSshPassword": {
+			"value": ""
+		},
+		"hdinsightclusterlink_servicePrincipalKey": {
+			"value": ""
+		},
+		"mssql_connectionString": {
+			"value": ""
+		},
+		"storageaccount_servicePrincipalKey": {
+			"value": ""
+		},
+		"storageaccountlink_servicePrincipalKey": {
+			"value": ""
+		},
+		"AmazonS31_properties_typeProperties_accessKeyId": {
+			"value": "AKIAXE7FK6Y4OQM5GMHK"
+		},
+		"AmazonS32_properties_typeProperties_accessKeyId": {
+			"value": "AKIAXE7FK6Y4OQM5GMHK"
+		},
+		"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+			"value": "https://biglakestoragedata.blob.core.windows.net"
+		},
+		"AzureBlobStorage2_properties_typeProperties_tenant": {
+			"value": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureBlobStorage2_properties_typeProperties_servicePrincipalId": {
+			"value": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_hostSubscriptionId": {
+			"value": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterResourceGroup": {
+			"value": "poc"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_servicePrincipalId": {
+			"value": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_tenant": {
+			"value": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterUserName": {
+			"value": "admin"
+		},
+		"AzureHDInsightLinkedService_properties_typeProperties_clusterSshUserName": {
+			"value": "sshadmin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_hostSubscriptionId": {
+			"value": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterResourceGroup": {
+			"value": "poc"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_servicePrincipalId": {
+			"value": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_tenant": {
+			"value": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterUserName": {
+			"value": "admin"
+		},
+		"AzureHDInsightLinkedServiceBiglakeLS_properties_typeProperties_clusterSshUserName": {
+			"value": "sshadmin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_hostSubscriptionId": {
+			"value": "974668b8-821d-4cc2-a84d-c81a7733f464"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterResourceGroup": {
+			"value": "poc"
+		},
+		"AzureHDinsightLS_properties_typeProperties_servicePrincipalId": {
+			"value": "2046243d-acda-4efe-8ed2-875dbc6e7d72"
+		},
+		"AzureHDinsightLS_properties_typeProperties_tenant": {
+			"value": "c8fedfb4-d804-457b-9745-362581de2e4c"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterUserName": {
+			"value": "admin"
+		},
+		"AzureHDinsightLS_properties_typeProperties_clusterSshUserName": {
+			"value": "sshadmin"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kvpocplaygroundrba.vault.azure.net/"
+		},
+		"FileServerSystem_properties_typeProperties_host": {
+			"value": "C:\\Users\\Ben\\Data\\"
+		},
+		"FileServerSystem_properties_typeProperties_userId": {
+			"value": "ben"
+		},
+		"LocalFilesSystem_properties_typeProperties_host": {
+			"value": "C:\\BDAP_POC\\Rawdata"
+		},
+		"LocalFilesSystem_properties_typeProperties_userId": {
+			"value": "b2b\\arzuagaa"
+		},
+		"S3DevRawdata_properties_typeProperties_accessKeyId": {
+			"value": "AKIAIAKUO5NYCDA2ZMYA"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_hostSubscriptionId": {
+			"value": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterResourceGroup": {
+			"value": "bdap-poc-playground"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_servicePrincipalId": {
+			"value": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_tenant": {
+			"value": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterUserName": {
+			"value": "admin"
+		},
+		"biglakehdinsightcluster_properties_typeProperties_clusterSshUserName": {
+			"value": "sshadmin"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://datalakepocplaygroundrba.azuredatalakestore.net/webhdfs/v1"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_servicePrincipalId": {
+			"value": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_tenant": {
+			"value": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_subscriptionId": {
+			"value": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"datalakepocplaygroundrba_properties_typeProperties_resourceGroupName": {
+			"value": "bdap-poc-playground"
+		},
+		"hdinsightclusterlink_properties_typeProperties_hostSubscriptionId": {
+			"value": "f444d84a-049a-43b9-be3b-10be59713bc5"
+		},
+		"hdinsightclusterlink_properties_typeProperties_clusterResourceGroup": {
+			"value": "bdap-poc-playground"
+		},
+		"hdinsightclusterlink_properties_typeProperties_servicePrincipalId": {
+			"value": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"hdinsightclusterlink_properties_typeProperties_tenant": {
+			"value": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"storageaccount_properties_typeProperties_serviceEndpoint": {
+			"value": "https://csbf444d84a049ax43b9xbe3.blob.core.windows.net"
+		},
+		"storageaccount_properties_typeProperties_tenant": {
+			"value": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"storageaccount_properties_typeProperties_servicePrincipalId": {
+			"value": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"storageaccountlink_properties_typeProperties_url": {
+			"value": "https://biglakestorage.dfs.core.windows.net"
+		},
+		"storageaccountlink_properties_typeProperties_tenant": {
+			"value": "9274ee3f-9425-4109-a27f-9fb15c10675d"
+		},
+		"storageaccountlink_properties_typeProperties_servicePrincipalId": {
+			"value": "914c772b-af21-4323-acfb-cc161fd223a5"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
