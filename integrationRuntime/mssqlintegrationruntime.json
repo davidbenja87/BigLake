@@ -1,6 +1,0 @@
-{
-	"name": "mssqlintegrationruntime",
-	"properties": {
-		"type": "SelfHosted"
-	}
-}

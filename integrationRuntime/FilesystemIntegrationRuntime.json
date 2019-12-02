@@ -1,7 +1,0 @@
-{
-	"name": "FilesystemIntegrationRuntime",
-	"properties": {
-		"type": "SelfHosted",
-		"description": "FilesystemIntegrationRuntime"
-	}
-}

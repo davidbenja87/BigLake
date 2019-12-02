@@ -1,6 +1,0 @@
-{
-	"name": "MssqlIntegration",
-	"properties": {
-		"type": "SelfHosted"
-	}
-}

@@ -1,7 +1,0 @@
-{
-	"name": "RDSIntegrationRunTime",
-	"properties": {
-		"type": "SelfHosted",
-		"description": "RDSIntegrationRunTime"
-	}
-}
