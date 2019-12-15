@@ -23,8 +23,8 @@ redirect_uri = "https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl"
 environment= 'sandbox'
 # redirect_uri = "https://sandbox-quickbooks.api.intuit.com/v3"
 # REFRESH_TOKEN = "AB11584276657dGSTYbj1MlF5tUqCz2arzhTUZcDHzW01W0QD9"
-REFRESH_TOKEN = 'AB1158436670497omUaXlA28cHBaiENiW4K3AdFFtEAzSHJEsm'
-
+# REFRESH_TOKEN = 'AB1158436670497omUaXlA28cHBaiENiW4K3AdFFtEAzSHJEsm'
+REFRESH_TOKEN = 'AB1158436670497omUaXlA28cHBaiENiW4K3AdFFtEAzSHJEasdfasdf'
 realm_id = "4620816365025351930"
 
 scopes = [
@@ -34,23 +34,31 @@ scopes = [
 
 
 auth_client = AuthClient( client_id, client_secret, redirect_uri, environment )
-auth_client.refresh(refresh_token=REFRESH_TOKEN)
-ACCESS_TOKEN = auth_client.access_token
+
+try:
+    auth_client.refresh(refresh_token=REFRESH_TOKEN)
+except:
+    print("Get saved token")    
+
+
+# auth_client.refresh(refresh_token=REFRESH_TOKEN)
+# # ACCESS_TOKEN = auth_client.access_token
 # print(auth_client.access_token)
-# print(auth_client.auth_endpoint)
+
+# # print(auth_client.auth_endpoint)
 # print(auth_client.refresh_token)
 # # auth_client.au
-client = QuickBooks(
-        auth_client=auth_client,
-        refresh_token= REFRESH_TOKEN ,
-        access_token=auth_client.access_token,
-        company_id='4620816365025351930'
-    )    
+# client = QuickBooks(
+#         auth_client=auth_client,
+#         refresh_token= REFRESH_TOKEN ,
+#         access_token=auth_client.access_token,
+#         company_id='4620816365025351930'
+#     )    
 
 
-account = CompanyCurrency.count(qb=client)
+# account = CompanyCurrency.count(qb=client)
 
-print(account)
+# print(account)
 
 # auth_client.response_type
 
