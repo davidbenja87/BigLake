@@ -1,3 +1,1 @@
-#CosmoDB
-===
-CosmoDB
+# CosmoDB
