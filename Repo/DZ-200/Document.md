@@ -7,14 +7,14 @@
 	   CosmoDB automatically indexing on all the fields.
   
   ### Two things to consider when creating cosmodb
-      * scalability (for handling high volume)
-	  * throughput (for meeting demands)
+      ** scalability (for handling high volume)
+	  ** throughput (for meeting demands)
 	  
   #### Scalablity
         Scalablity (scale out/horizontal scaling) can be achieved by choosing right partitioning.
 		Partion key should consider when we build container.
         
-		For instance,if we build online retailer,you can choose either customerid or productid.
+		For instance,if we build online retailer,you can choose either customerid or productid. 
         If customer do transaction,to know personalize settings then that 
 		thier request should be treated separately in order to reduce latency.
 		
