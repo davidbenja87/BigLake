@@ -1,2 +1,2 @@
 # CosmoDB
-  ## **Database account creation**
+  ## *Database account creation
