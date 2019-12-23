@@ -8,11 +8,12 @@ import json
 from pandas.io.json import json_normalize
 
 
-CLIENT_ID = "ABFLFrNJRfC5BVkJdV2DNEulWor6S5huvA0cEegUDbQMJiMSTD"
-CLIENT_SECRET = "zhW1LwwClmtxNTx9aEO6j4CQ379yrL6neSfyZQs0"
+CLIENT_ID = "ABwsKkmCzwOWQktmxd0mmX3KbzpXqTOkj26s5mWzRNkXZbrNeB"
+CLIENT_SECRET = "yWkU9vpUM0Hlua1MZnrIDGH3LOUvenz2SvDH7lw6"
 REDIRECT_URI = "https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl"
 # REDIRECT_URI = "https://sandbox-quickbooks.api.intuit.com/v3"
-REFRESH_TOKEN = "AB11584110237eLUnuCKSJoBTLs7QoytCPc5gy8tWviCCM5XLM"
+REFRESH_TOKEN = "AB11585319895oQ8oqLNKx0PlduvOz4t4oYFMDtym11mI6AIcx"
+
 
 
 
@@ -31,31 +32,31 @@ ACCESS_TOKEN = auth_client.access_token
 print(ACCESS_TOKEN)
 
 
-# client = QuickBooks(
-#         auth_client=auth_client,
-#         refresh_token= REFRESH_TOKEN ,
-#         access_token=ACCESS_TOKEN,
-#         company_id='1239606780'
-#     )    
+client = QuickBooks(
+        auth_client=auth_client,
+        refresh_token= REFRESH_TOKEN ,
+        access_token=ACCESS_TOKEN,
+        company_id='1387182235'
+    )    
 
-# # client.get_authorize_url()
 
-# # def querycutomized(cls, select, qb=None):
-# #     """
-# #     :param select: QBO SQL query select statement
-# #     :param qb:
-# #     :return: Returns list
-# #     """
-# #     if not qb:
-# #         qb = QuickBooks()
-# #     json_data = qb.query(select)
-# #     return json_data   
 
-# # def getentity(obj, entity : str, qb = None, offset : int = 1, limit : int = 1000):
-# #     obj = querycutomized(obj,"select * from " + entity + "  STARTPOSITION " + str(offset) + " MAXRESULTS "+ str(limit), qb = qb)
-# #     obj = obj["QueryResponse"][entity]
-# #     df = json_normalize(obj)
-# #     return df
+def querycutomized(cls, select, qb=None):
+    """
+    :param select: QBO SQL query select statement
+    :param qb:
+    :return: Returns list
+    """
+    if not qb:
+        qb = QuickBooks()
+    json_data = qb.query(select)
+    return json_data   
+
+def getentity(obj, entity : str, qb = None, offset : int = 1, limit : int = 1000):
+    obj = querycutomized(obj,"select * from " + entity + "  STARTPOSITION " + str(offset) + " MAXRESULTS "+ str(limit), qb = qb)
+    obj = obj["QueryResponse"][entity]
+    df = json_normalize(obj)
+    return df
 
 
 # # working code
@@ -68,15 +69,15 @@ print(ACCESS_TOKEN)
 
 # ##################################################################################################################
 
-# # account = Account()
-# # df = getentity(account, "Account", qb = client, offset = 3, limit=5)
-# # print(df)
+# account = Account()
+# df = getentity(account, "Account", qb = client, offset = 3, limit=5)
+# print(df)
 
-# # df.to_csv("C:\\Users\\sugumarb\\BDAP\\quicbooks\\account.csv")
-# # print(acc)
+# # # df.to_csv("C:\\Users\\sugumarb\\BDAP\\quicbooks\\account.csv")
+# # # print(acc)
 
-# account = Account.all(qb=client)
-# print(account)
+account = Account.all(qb=client)
+print(account)
 
 
 
