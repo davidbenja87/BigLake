@@ -28,8 +28,7 @@ Like Role assignment, we also have deny assignment, this will take precendence o
 
 Detailed document 
 
-![](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
-[I'm an inline-style link](https://www.google.com)
+[I'm an inline-style link](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
 
