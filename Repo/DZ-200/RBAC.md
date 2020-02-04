@@ -14,7 +14,8 @@ Role definition
 Scope
 
 - This defines which area you have access to 
-![]RBAC%20role%20assignment.PNG
+
+![](RBAC%20role%20assignment.PNG)
 
 
 
