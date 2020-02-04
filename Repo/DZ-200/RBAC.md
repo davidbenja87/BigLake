@@ -28,6 +28,6 @@ Like Role assignment, we also have deny assignment, this will take precendence o
 
 Detailed document 
 
-[](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
+![](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
 
