@@ -21,7 +21,7 @@ Scope
 
 In Role definition,we need to define our actions to perform on this resource
 
-![Role definition]()
+![Role definition](images/Role%20defination.PNG)
 
 
 
