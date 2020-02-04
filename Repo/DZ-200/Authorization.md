@@ -32,3 +32,18 @@ Detailed document
 [RBAC document](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
 
+### Database scoped credential
+
+Sql server/Datawarehouse can connect to external application like storage account by setting up Database scoped credential.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL credential_name
+WITH IDENTITY = 'identity_name'
+    [ , SECRET = 'secret' ]
+    
+```    
+    
+
+
+
+
