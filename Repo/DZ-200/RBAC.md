@@ -23,5 +23,7 @@ In Role definition,we need to define our actions to perform on this resource
 
 ![Role definition](images/Role%20defination.PNG)
 
+Like Role assignment, we also have deny assignment, this will take precendence over the role assignment.
+
 
 
