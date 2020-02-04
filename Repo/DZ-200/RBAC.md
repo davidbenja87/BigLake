@@ -30,4 +30,6 @@ Detailed document
 
 ![](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
+[I'm an inline-style link](https://www.google.com)
+
 
