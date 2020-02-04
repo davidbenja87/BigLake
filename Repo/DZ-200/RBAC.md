@@ -17,6 +17,11 @@ Scope
 
 ![](images/RBAC%20role%20assignment.PNG)
 
+#### Role definition
+
+In Role definition,we need to define our actions to perform on this resource
+
+![Role definition]()
 
 
 
