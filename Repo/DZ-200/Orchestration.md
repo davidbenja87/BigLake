@@ -9,6 +9,13 @@ Using ADF we can define the data flow(Data pipeline) for the process.
 
 [Trigger][Trigger]
 
-Trigger
+#### Trigger
+
+Trigger is used to invoke a pipeline at the specified time or event.
+
+##### Event Based trigger
+
+Event based trigger is used to trigger the pipeline based upon the event,lets say arrival or deletion of a file in the storage account.
+
 
 
