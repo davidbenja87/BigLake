@@ -22,8 +22,12 @@ Event based trigger is used to trigger the pipeline based upon the event,lets sa
 
 ##### Schedule Based trigger
 
-Schedule Based tirgger is used to invoke a pipeline based on specified time.We suppose to give start datetime, recurrence(minute/hour/daily/weekly) and end datetime if we required.
+Schedule Based tirgger is used to invoke a pipeline based on specified time.We suppose to give start datetime, recurrence(minute/hour/daily/weekly) and end datetime if we required.Single schedule trigger associate with multiple pipeline and vice versa.
 
 ![](images/schedulebasedtrigger.PNG)
+
+##### Tumbling window
+
+Tumbling window trigger a pipeline based on a fixed interval. It is associate with single pipeline.
 
 
