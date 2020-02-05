@@ -17,6 +17,6 @@ Trigger is used to invoke a pipeline at the specified time or event.
 
 Event based trigger is used to trigger the pipeline based upon the event,lets say arrival or deletion of a file in the storage account.
 
-![Event based trigger](/images/eventbasedtrigger.PNG)
+![Event based trigger](images/eventbasedtrigger.PNG)
 
 
