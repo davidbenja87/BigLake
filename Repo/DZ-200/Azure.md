@@ -1,4 +1,4 @@
 Azure
 
 
-[Authorization](/Authorization.md)
+[Authorization](/Repo/DZ-200/Authorization.md)
