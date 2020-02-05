@@ -24,5 +24,6 @@ Event based trigger is used to trigger the pipeline based upon the event,lets sa
 
 Schedule Based tirgger is used to invoke a pipeline based on specified time.We suppose to give start datetime, recurrence(minute/hour/daily/weekly) and end datetime if we required.
 
+![](images/schedulebasedtrigger.PNG)
 
 
