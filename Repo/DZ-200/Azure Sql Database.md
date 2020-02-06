@@ -28,6 +28,12 @@ There are two type of encryption method
    * configure the field required to encrypt by specifing the encrypted method and encryted algorithm (CEK)
    * configure the store(Keyvault / windows store) to save CMK.
    
+   ![](images/alwaysencryption1.PNG)
+   
+   ![](images/alwaysencryption2.PNG)
+   
+   ![](images/alwaysencryption3.PNG)
+   
    
 
 
