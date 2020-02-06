@@ -73,7 +73,7 @@ There are two type of encryption method
    ('Janice', 'Galvin', '555.123.4568', 'JGalvin@contoso.com.co'),  
    ('Zheng', 'Mu', '555.123.4569', 'ZMu@contoso.net');  
    SELECT * FROM Membership;  
-```
+  ```
 
 Grant user to acces table
 
