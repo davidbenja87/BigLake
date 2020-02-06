@@ -3,6 +3,9 @@
 Azure sql database is a database PAAS service.
 
 
+
+### Security
+
 #### Data encryption
 
 ##### Always encrypted
