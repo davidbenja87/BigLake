@@ -37,4 +37,4 @@ IR is used to provide the computation environment for the activities to perform
 
 This could be connected to public or private network based on the data store location.
 
-![](images/integrationruntimetable.PNG)
+![](images/integrationtimetable.PNG)
