@@ -40,5 +40,39 @@ There are two type of encryption method
    ![](images/Alwaysencryption4.PNG)
    
    
+   #### Dynamic Data Masking
+   
+   DDM is a feature available in Sql server and Azure sql database.
+   
+   It protects sensitive information in the table without modifying the underlying data. This means it masks the data in the query result.
+   
+   This gives additional and complements other protection techniques (encryption,rowlevel security,auditing..)
+   
+   There are four types of DDM and it is configured via T-SQL
+   
+   default - replace all character to 4 xxxx or less if it has less than 4 character
+   email - shows first and suffix .com  eg axxxx@xxx.com
+   random - it generates random number. this support only numerical value.
+   custom string - it expose first and last letters and add custom padding string in the middle
+   
+   * permission - you should have create and alter table permission
+   
+   This is very useful as user can't see the actual values but however they can update values.
+   
+   Create DDM table
+   ```sql
+   CREATE TABLE Membership  
+  (MemberID int IDENTITY PRIMARY KEY,  
+   FirstName varchar(100) MASKED WITH (FUNCTION = 'partial(1,"XXXXXXX",0)') NULL,  
+   LastName varchar(100) NOT NULL,  
+   Phone varchar(12) MASKED WITH (FUNCTION = 'default()') NULL,  
+   Email varchar(100) MASKED WITH (FUNCTION = 'email()') NULL);  
+  
+INSERT Membership (FirstName, LastName, Phone, Email) VALUES   
+('Roberto', 'Tamburello', '555.123.4567', 'RTamburello@contoso.com'),  
+('Janice', 'Galvin', '555.123.4568', 'JGalvin@contoso.com.co'),  
+('Zheng', 'Mu', '555.123.4569', 'ZMu@contoso.net');  
+SELECT * FROM Membership;  
+```
 
 
