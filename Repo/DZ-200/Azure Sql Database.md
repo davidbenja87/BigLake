@@ -34,6 +34,8 @@ There are two type of encryption method
    
    ![](images/alwaysencryption3.PNG)
    
+   ![](images/Alwaysencryption4.PNG)
+   
    
 
 
