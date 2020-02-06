@@ -77,7 +77,7 @@ There are two type of encryption method
 
 Grant user to acces table
 
-``` sql
+  ```sql
    CREATE USER TestUser WITHOUT LOGIN;  
    GRANT SELECT ON Membership TO TestUser;  
 
