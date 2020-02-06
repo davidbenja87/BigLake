@@ -31,7 +31,7 @@ Schedule Based tirgger is used to invoke a pipeline based on specified time.We s
 Tumbling window trigger a pipeline based on a fixed interval. It is associate with single pipeline.
 
 
-##### Integration RunTime
+#### Integration RunTime
 
 IR is used to provide the computation environment for the activities to perform
 
