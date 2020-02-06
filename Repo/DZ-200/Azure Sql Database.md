@@ -75,4 +75,13 @@ There are two type of encryption method
    SELECT * FROM Membership;  
 ```
 
+Grant user to acces table
 
+```sql
+CREATE USER TestUser WITHOUT LOGIN;  
+GRANT SELECT ON Membership TO TestUser;  
+  
+EXECUTE AS USER = 'TestUser';  
+SELECT * FROM Membership;  
+REVERT;  
+```
