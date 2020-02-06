@@ -85,3 +85,14 @@ Grant user to acces table
    SELECT * FROM Membership;  
    REVERT;  
 ```
+UnMask User
+
+```sql 
+GRANT UNMASK TO TestUser;  
+EXECUTE AS USER = 'TestUser';  
+SELECT * FROM Membership;  
+REVERT;   
+  
+-- Removing the UNMASK permission  
+REVOKE UNMASK TO TestUser;  
+```
