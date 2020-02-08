@@ -8,3 +8,4 @@
 * last campaign date
 * how many sales people contacted
 * interaction with marketing campagin
+* which campagin is included
