@@ -7,3 +7,7 @@ Bascially it collects data into two datastore
 * Log
 ![](images/azuremonitoroverview.PNG)
 
+### Metrics
+
+https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported
+
