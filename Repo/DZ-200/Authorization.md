@@ -49,6 +49,7 @@ Detailed document
 [Database scope credential](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=sql-server-ver15)
 
   Identity can be the following
+    
     * User and password
     * AAD service prinicpal
     * Shared access signature
