@@ -42,7 +42,7 @@ There are two type of encryption method
    
    #### Dynamic Data Masking
    
-   DDM is a feature available in Sql server and Azure sql database.
+   DDM is a feature available in Sql server , Azure sql database & Azure synapse analytics.
    
    It protects sensitive information in the table without modifying the underlying data. This means it masks the data in the query result.
    
