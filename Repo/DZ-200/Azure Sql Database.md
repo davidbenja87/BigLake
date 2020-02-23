@@ -39,7 +39,7 @@ There are two type of encryption method
    
    ![](images/Alwaysencryption4.PNG)
    
-   
+  Reference : https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault?tabs=azure-powershell 
    #### Dynamic Data Masking
    
    DDM is a feature available in Sql server , Azure sql database & Azure synapse analytics.
@@ -96,3 +96,5 @@ REVERT;
 -- Removing the UNMASK permission  
 REVOKE UNMASK TO TestUser;  
 ```
+
+Reference : https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15
