@@ -6,6 +6,15 @@ Azure sql database is a database PAAS service.
 
 ### Security
 
+- Network - (firewall-  server/database)
+- Access management - (SQL /Azure AD authentication)
+- Advanced data security - (Vulnerablily accessment/Data discovery)
+- Data Auditing
+- Dynamic Data masking (Database level only)
+- Transparent Data encryption (TDE)/ Always encrypted
+
+Reference : https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-tutorial
+
 #### Data encryption
 
 ##### Always encrypted
