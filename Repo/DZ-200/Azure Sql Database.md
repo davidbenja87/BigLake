@@ -107,3 +107,10 @@ REVOKE UNMASK TO TestUser;
 ```
 
 Reference : https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15
+
+
+### Monitor Database
+
+### Diagnostic logging
+
+Reference : https://azure.microsoft.com/en-gb/updates/azure-monitor-log-support-for-sql-data-warehouse/
