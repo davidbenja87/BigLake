@@ -2,6 +2,12 @@
 
 ### Blob storage
 
+### Authentication type
+
+- Account key (Parent access)
+- Shared access signature (delegate access to particular services/account for specific time interval)
+- Service principal
+- Managed Identity
 
 ### Firewall setting
 
