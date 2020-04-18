@@ -18,3 +18,14 @@ variable "ARM_TENANT_ID" {
 variable "storageaccountname" {
   default = "biglakestoragepoctest"
 }
+variable "location" {
+  default = "southindia"
+}
+variable "environment" {
+  default = "dev"
+}
+
+variable "my_dev_tf_rg" {
+  description = "Resource group for Development"
+  default = "my-dev-tf-rg"
+}
