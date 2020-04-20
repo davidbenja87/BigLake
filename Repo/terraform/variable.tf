@@ -40,3 +40,19 @@ variable "my_dev_vnet_alpha_subnet_add_space_tf_rg" {
   description = "Resource group for Development"
   default = ["10.1.0.0/24"]
 }
+
+variable "subnet_private" {
+  description = "subnet for Development"
+  default ="/subscriptions/974668b8-821d-4cc2-a84d-c81a7733f464/resourceGroups/my-dev-vnet-alpha-tf-rg/providers/Microsoft.Network/virtualNetworks/virtualNetworkalpha/subnets/private"
+}
+variable "subnet_public" {
+  description = "subnet for Development"
+  default ="/subscriptions/974668b8-821d-4cc2-a84d-c81a7733f464/resourceGroups/my-dev-vnet-alpha-tf-rg/providers/Microsoft.Network/virtualNetworks/virtualNetworkalpha/subnets/public"
+}
+
+variable "nsg" {
+  description = "subnet for Development"
+  default ="/subscriptions/974668b8-821d-4cc2-a84d-c81a7733f464/resourceGroups/my-dev-vnet-alpha-tf-rg/providers/Microsoft.Network/networkSecurityGroups/acceptanceTestSecurityGroup1"
+}
+
+
